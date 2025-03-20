@@ -1,0 +1,190 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Laptop Gaming Pro",
+      "price": 999.99,
+      "stock": 50
+    },
+    {
+      "id": "2",
+      "name": "Smartphone X12",
+      "price": 699.99,
+      "stock": 100
+    },
+    {
+      "id": "3",
+      "name": "Tablet Air",
+      "price": 449.99,
+      "stock": 75
+    },
+    {
+      "id": "4",
+      "name": "Smart Watch V4",
+      "price": 199.99,
+      "stock": 120
+    }
+  ],
+  "orders": [
+    {
+      "id": "1586",
+      "customerName": "juan Perez",
+      "email": "juanP@gmail.com",
+      "products": [
+        {
+          "productId": "1",
+          "quantity": 1,
+          "stock": 50,
+          "price": 999.99
+        }
+      ],
+      "total": 999.99,
+      "orderCode": "J.com065049",
+      "timestamp": "2024-10-28T14:51:05.049Z"
+    },
+    {
+      "id": "3db1",
+      "customerName": "juan perez",
+      "email": "juanP@gmail.com",
+      "products": [
+        {
+          "productId": "2",
+          "quantity": 1,
+          "stock": 100,
+          "price": 699.99
+        }
+      ],
+      "total": 699.99,
+      "orderCode": "J.com079946",
+      "timestamp": "2024-10-28T14:51:19.946Z"
+    },
+    {
+      "id": "3b59",
+      "customerName": "juan perez",
+      "email": "juanP@gmail.com",
+      "products": [
+        {
+          "productId": "2",
+          "quantity": 1,
+          "stock": 100,
+          "price": 699.99
+        }
+      ],
+      "total": 699.99,
+      "orderCode": "J.com097957",
+      "timestamp": "2024-10-28T14:51:37.957Z"
+    },
+    {
+      "id": "0f2c",
+      "customerName": "Luis Gigena",
+      "email": "luisG@gmail.com",
+      "products": [
+        {
+          "productId": "1",
+          "quantity": 1,
+          "stock": 50,
+          "price": 999.99
+        },
+        {
+          "productId": "2",
+          "quantity": 1,
+          "stock": 100,
+          "price": 699.99
+        }
+      ],
+      "total": 1529.982,
+      "orderCode": "L.com222249",
+      "timestamp": "2024-10-28T14:53:42.249Z"
+    },
+    {
+      "id": "a92d",
+      "customerName": "Santiago",
+      "email": "sanagos_12@hotmail.com",
+      "products": [
+        {
+          "productId": "2",
+          "quantity": 3
+        },
+        {
+          "productId": "1",
+          "quantity": 1
+        }
+      ],
+      "total": 0,
+      "orderCode": "S.com1731026769251",
+      "timestamp": "2024-11-08T00:46:09.251Z"
+    },
+    {
+      "id": "3758",
+      "customerName": "Santiago",
+      "email": "sanagos_12@hotmail.com",
+      "products": [
+        {
+          "productId": "1",
+          "quantity": 2
+        },
+        {
+          "productId": "2",
+          "quantity": 1
+        },
+        {
+          "productId": "3",
+          "quantity": 1
+        }
+      ],
+      "total": 0,
+      "orderCode": "S.com1731033462867",
+      "timestamp": "2024-11-08T02:37:42.867Z"
+    },
+    {
+      "id": "8bba",
+      "customerName": "Santiago",
+      "email": "sanagos_12@hotmail.com",
+      "products": [
+        {
+          "productId": "1",
+          "quantity": 1,
+          "stock": 50,
+          "price": 999.99
+        },
+        {
+          "productId": "4",
+          "quantity": 1,
+          "stock": 120,
+          "price": 199.99
+        },
+        {
+          "productId": "3",
+          "quantity": 1,
+          "stock": 75,
+          "price": 449.99
+        }
+      ],
+      "total": 1484.973,
+      "orderCode": "S.com1731033860411",
+      "timestamp": "2024-11-08T02:44:20.411Z"
+    },
+    {
+      "id": "6346",
+      "customerName": "Santiago",
+      "email": "sanagos_12@hotmail.com",
+      "products": [
+        {
+          "productId": "1",
+          "quantity": 1,
+          "stock": 50,
+          "price": 999.99
+        },
+        {
+          "productId": "3",
+          "quantity": 1,
+          "stock": 75,
+          "price": 449.99
+        }
+      ],
+      "total": 1304.982,
+      "orderCode": "S.com1742431610478",
+      "timestamp": "2025-03-20T00:46:50.478Z"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+<div class="container mt-4">
+    <h2>Create New Order</h2>
+    
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="customerName" class="form-label">Customer Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="customerName"
+              formControlName="customerName"
+              [class.is-invalid]="orderForm.get('customerName')?.invalid && orderForm.get('customerName')?.touched"
+            >
+            <div class="invalid-feedback">
+              {{ getErrorMessage('customerName') }}
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              formControlName="email"
+              [class.is-invalid]="orderForm.get('email')?.invalid && orderForm.get('email')?.touched"
+            >
+            <div class="invalid-feedback">
+              {{ getErrorMessage('email') }}
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div formArrayName="products">
+        <h4>Products</h4>
+        <div *ngFor="let product of productsFormArray.controls; let i=index" [formGroupName]="i" class="row mb-3">
+          <div class="col-md-4">
+            <select 
+              class="form-select" 
+              formControlName="productId"
+              [class.is-invalid]="product.get('productId')?.invalid && product.get('productId')?.touched"
+            >
+              <option value="">Select Product</option>
+              <option *ngFor="let p of products" [value]="p.id">{{p.name}}</option>
+            </select>
+            <div class="invalid-feedback">Please select a product</div>
+          </div>
+          <div class="col-md-2">
+            <input 
+              type="number" 
+              class="form-control" 
+              formControlName="quantity"
+              [class.is-invalid]="product.get('quantity')?.invalid && product.get('quantity')?.touched"
+              placeholder="Quantity"
+            >
+            <div class="invalid-feedback">
+              <span *ngIf="product.get('quantity')?.errors?.['required']">Quantity is required</span>
+              <span *ngIf="product.get('quantity')?.errors?.['min']">Minimum quantity is 1</span>
+              <span *ngIf="product.get('quantity')?.errors?.['insufficientStock']">Insufficient stock</span>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <input type="number" class="form-control" formControlName="price" readonly>
+          </div>
+          <div class="col-md-2">
+            <input type="number" class="form-control" formControlName="stock" readonly>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-danger" (click)="removeProduct(i)">X</button>
+          </div>
+        </div>
+        
+        <div *ngIf="productsFormArray.errors?.['duplicateProducts']" class="alert alert-danger">
+          Duplicate products are not allowed
+        </div>
+        <div *ngIf="productsFormArray.errors?.['maxTotalQuantity']" class="alert alert-danger">
+          Maximum total quantity (10) exceeded
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <button type="button" class="btn btn-secondary" (click)="addProduct()">+</button>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Total: ${{calculateTotal() | number:'1.2-2'}}</h4>
+          <small *ngIf="calculateTotal() > 1000" class="text-success">10% discount applied!</small>
+        </div>
+        <div class="col-md-6 text-end">
+          <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid || loading">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+            Create Order
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <h2>Orders</h2>
+    
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by customer name or email"
+        [(ngModel)]="searchTerm"
+        (input)="filterOrders()"
+      >
+    </div>
+  
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Order Code</th>
+            <th>Customer Name</th>
+            <th>Email</th>
+            <th>Products</th>
+            <th>Date</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of filteredOrders">
+            <td>{{order.orderCode}}</td>
+            <td>{{order.customerName}}</td>
+            <td>{{order.email}}</td>
+            <td>{{order.products.length}}</td>
+            <td>{{order.timestamp | date:'medium'}}</td>
+            <td>${{order.total | number:'1.2-2'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
